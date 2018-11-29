@@ -1,0 +1,80 @@
+int R1=33;
+int R2=32;
+int R3=31;
+int R4=30;
+int R5=29;
+int R6=28;
+
+int C1=41;
+int C2=40;
+int C3=39;
+int C4=38;
+int C5=37;
+int C6=36;
+int C7=35;
+int C8=34;
+
+
+void setup() {
+pinMode(R1, OUTPUT);  
+pinMode(R2, OUTPUT);
+pinMode(R3, OUTPUT);
+pinMode(R4, OUTPUT);
+pinMode(R5, OUTPUT);
+pinMode(R6, OUTPUT);
+
+pinMode(C1, OUTPUT);
+pinMode(C2, OUTPUT);
+pinMode(C3, OUTPUT);
+pinMode(C4, OUTPUT);
+pinMode(C5, OUTPUT);
+pinMode(C6, OUTPUT);
+pinMode(C7, OUTPUT);
+pinMode(C8, OUTPUT);
+
+pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop() {
+
+digitalWrite(LED_BUILTIN, HIGH);
+delay(1000); 
+digitalWrite(LED_BUILTIN, LOW);    
+delay(1000);                       
+
+digitalWrite(LED_BUILTIN, HIGH);
+digitalWrite(C1, HIGH);
+digitalWrite(R1, HIGH);
+delay(700);
+digitalWrite(C1, LOW);
+digitalWrite(R1, LOW);
+digitalWrite(LED_BUILTIN, LOW);  
+delay(700);
+
+digitalWrite(LED_BUILTIN, HIGH);
+digitalWrite(C2, HIGH);
+digitalWrite(R2, HIGH);
+delay(700);
+digitalWrite(C2, LOW);
+digitalWrite(R2, LOW);
+digitalWrite(LED_BUILTIN, LOW); 
+delay(700);
+
+digitalWrite(LED_BUILTIN, HIGH);
+digitalWrite(C3, HIGH);
+digitalWrite(R3, HIGH);
+delay(700);
+digitalWrite(C3, LOW);
+digitalWrite(R3, LOW);
+digitalWrite(LED_BUILTIN, LOW);  
+delay(700);
+
+digitalWrite(LED_BUILTIN, HIGH);
+digitalWrite(C6, HIGH);
+digitalWrite(R6, HIGH);
+delay(700);
+digitalWrite(C6, LOW);
+digitalWrite(R6, LOW);
+digitalWrite(LED_BUILTIN, LOW); 
+delay(700);
+}
