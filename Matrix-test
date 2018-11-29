@@ -1,3 +1,4 @@
+//Reihen
 int R1=33;
 int R2=32;
 int R3=31;
@@ -5,6 +6,7 @@ int R4=30;
 int R5=29;
 int R6=28;
 
+//Spalten
 int C1=41;
 int C2=40;
 int C3=39;
