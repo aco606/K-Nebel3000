@@ -1,4 +1,12 @@
-//hier schreiben wir den Arduino-Code für die Steuerung von der Nebelmaschine per Lichtschrank!
-Sharp 0A41SK F 71 [Y0A41S] INFRAROT
+//Arduino-Code für die Steuerung von der Nebelmaschine per Lichtschrank
+
+//Sharp 0A41SK F 71 [Y0A41S] INFRAROT
+//Casio SA-77 60,4cm x 21,1cm x 5,7 cm
+//
+
+
+
+
+
 HC-SR04 ([ULTRASCHAL]
 HW-483 (Ermittler) (Receiver)
