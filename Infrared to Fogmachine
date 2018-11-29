@@ -7,3 +7,20 @@
 //Ultrasonic ranging module HC-SR04 >>> 2cm-400cm non-contact measurement function. :)
 
 //(HW-483 (Ermittler) (Receiver))
+
+
+
+
+//Ultrasonic ranging module HC-SR04 >>> 2cm-400cm non-contact measurement function. :)
+
+[Hardware]
+
+5V Supply 
+
+Trigger Pulse Input 
+
+Echo Pulse Output 
+
+0V Ground 
+
+https://www.instructables.com/id/Simple-Arduino-and-HC-SR04-Example/
