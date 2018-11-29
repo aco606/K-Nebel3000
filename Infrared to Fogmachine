@@ -1,12 +1,9 @@
 //Arduino-Code für die Steuerung von der Nebelmaschine per Lichtschrank
 
-//Sharp 0A41SK F 71 [Y0A41S] INFRAROT
-//Casio SA-77 60,4cm x 21,1cm x 5,7 cm
-//
+//Casio SA-77 : 60,4cm x 21,1cm x 5,7 cm
 
+//Sharp 0A41SK F 71 [Y0A41S] INFRAROT >>> 4cm-30 cm non-contact measurement function :(
 
+//Ultrasonic ranging module HC-SR04 >>> 2cm-400cm non-contact measurement function. :)
 
-
-
-HC-SR04 ([ULTRASCHAL]
-HW-483 (Ermittler) (Receiver)
+//(HW-483 (Ermittler) (Receiver))
