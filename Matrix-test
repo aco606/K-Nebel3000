@@ -16,6 +16,8 @@ int C6=36;
 int C7=35;
 int C8=34;
 
+//TO-DO: PB6 und PB einbinden
+
 
 void setup() {
 pinMode(R1, OUTPUT);  
