@@ -1,3 +1,5 @@
+// In dieser Version sind die Funktionen Verfolgung und Glow, wobei Glow noch nicht so gut funktioniert, d.h. es glowt sehr langsam ^^
+
 #include <Adafruit_NeoPixel.h>
 #ifdef __AVR__  
   #include <avr/power.h>
