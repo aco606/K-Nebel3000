@@ -1,4 +1,5 @@
-//Milliscode versuch && in loop für doppel Bedingung für den Fall <52 
+//https://arduino.stackexchange.com/questions/36875/hc-sr04-distance-measuring-without-dealy 
+Milliscode versuch && in loop für doppel Bedingung für den Fall <52 
 
 /*
  HC-SR04 Ping distance sensor]
