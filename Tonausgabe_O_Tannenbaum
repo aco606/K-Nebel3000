@@ -19,8 +19,8 @@ byte sr8 = B11111110;
 
 
 void setup() {
-  DDRC = B00000000;
-  DDRA = B11111111;
+  DDRC = B00000000;       // Direction Register für Port C. Acht Nullen bedeuten, dass alle Pins auf Input gesetzt werden.
+  DDRA = B11111111;       // Entsprechend für port A. Alle Pins  werden auf Output gesetzt.
 }
 
 void loop() {
@@ -34,8 +34,8 @@ void loop() {
 }
 //Dienst um einen Ton auszugeben mit den Ãœbergabeparametern reihe und spalte
 void spielen(byte reihe, byte spalte) {
-   if (PINC == reihe) {
-   PORTA = spalte;
+   if (PINC == reihe) {                 // PINC fragt den Zustand der auf Input gesetzten Pins am Port C ab.
+   PORTA = spalte;                      // PORTA setzt den Zustand der auf Output gesetzten Pins am Port A auf 5V oder 0. 
   } else {
     PORTA = B11111111;
     }
