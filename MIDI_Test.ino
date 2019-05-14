@@ -10,9 +10,17 @@
  void loop()
  {
      MIDI.read();
-     delay(500);
+    // delay(500);
      MIDI.sendNoteOn(30, 127, 1);
-     delay(500);
+    // delay(500);
      MIDI.sendNoteOff(30, 127, 1);
-     delay(500);
+    // delay(500);
+   MIDI.sendNoteOn(40, 127, 1);
+    // delay(500);
+     MIDI.sendNoteOff(40, 127, 1);
+    // delay(500);
+   MIDI.sendNoteOn(50, 127, 1);
+    // delay(500);
+     MIDI.sendNoteOff(50, 127, 1);
+    // delay(500);
  }
