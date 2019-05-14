@@ -1,0 +1,32 @@
+void lied() {
+  c2(takt/8);
+  c2(takt/8);
+  set1(resetT);
+  f3(takt/2);
+  set1(resetT);
+  f3(takt/8);
+  set1(resetT);
+  f3(takt/2);
+  set1(resetT);
+  g3(takt/4);
+  set1(resetT);
+  a3(takt/2);
+  set1(resetT);
+  a3(takt/8);
+  set1(resetT);
+  a3(takt/2);
+  set1(resetT);
+  a3(takt/8);
+  set1(resetT);
+  g3(takt/4);
+  a3(takt/4);
+  set1(resetT);
+  b3(takt/4);
+  set1(resetT);
+  e2(takt/4);
+  g3(takt/4);
+  set1(resetT);
+  f3(takt/4);
+  
+  set1(takt);
+}
