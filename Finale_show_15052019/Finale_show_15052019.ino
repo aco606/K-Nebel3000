@@ -1,0 +1,251 @@
+#include <MIDI.h>
+MIDI_CREATE_DEFAULT_INSTANCE();
+#include <Adafruit_NeoPixel.h>
+#ifdef __AVR__  
+  #include <avr/power.h>
+#endif
+
+#define PIN 8
+#define NUMPIXELS 60
+
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(60, 8, NEO_GRB + NEO_KHZ800);
+
+uint16_t i, j;
+
+long unterschied = 0;
+long interval = 1000;
+long start = 0;
+int takt = 1846;      //LÃ¤nge des Takts festlegen. BPM von Clocks 130. -> 1846 ms Taktlänge
+int resetT = 30;
+
+byte rows = 0;
+int ges = 0;
+//Nummerierung für spalten und Reihen vereinfachen
+byte sr1 = B01111111;
+byte sr2 = B10111111;
+byte sr3 = B11011111;
+byte sr4 = B11101111;
+byte sr5 = B11110111;
+byte sr6 = B11111011;
+byte sr7 = B11111101;
+byte sr8 = B11111110;
+
+byte reihen[8] = {sr1, sr2, sr3, sr4, sr5, sr6, sr7, sr8};
+
+void setup() {
+  DDRC = B00000000;       // Direction Register für Port C. Acht Nullen bedeuten, dass alle Pins auf Input gesetzt werden.
+  DDRA = B11111111;       // Entsprechend für port A. Alle Pins  werden auf Output gesetzt.
+  MIDI.begin(MIDI_CHANNEL_OMNI);  // Listen to all incoming messages
+  strip.begin();
+  strip.setBrightness(255);
+  strip.show();
+  
+}
+
+void loop() {
+
+rainbowCycle(1);
+MIDI.sendNoteOn(50, 127, 1);
+rainbowCycle(1);
+MIDI.sendNoteOff(50, 127, 1);
+delay(5);
+MIDI.sendNoteOn(10, 127, 1);
+clocks();
+clocks();
+clocks();
+clocks();
+MIDI.sendNoteOff(10, 127, 1);
+delay(5);
+
+}
+
+void ton(int reihe, int spalte, int val){
+  unterschied = 0;                        
+  start = millis();                       
+  while(unterschied<=val) {               
+    unterschied = millis()-start;         
+    spielen(reihen[reihe],reihen[spalte]);                     
+  }
+}
+//Dienst um einen Ton auszugeben mit den Ãœbergabeparametern reihe und spalte
+
+void spielen(byte reihe, byte spalte) {
+   if (PINC == reihe) {
+   PORTA = spalte;
+  } else {
+    PORTA = B11111111;
+    }
+  }
+  
+//Dienst um eine bestimmte Note mit bestimmter Reihe und Spalte auszugeben  mit dem Ãœbergabeparameter fÃ¼r die LÃ¤nge des zu spielenden Tons
+void c2(int val) {
+  unterschied = 0;                        //unterschied auf 0 setzten
+  start = millis();                       //start vor beginn der while Schleife auf die Millisekunden seit start des Sketches setzen
+  while(unterschied<=val) {               //ÃœberprÃ¼fen ob Unterschied kleiner oder gleich der lÃ¤nge der Note
+    unterschied = millis()-start;         //unterschied auf die millisekunden-start setzen
+    spielen(sr4,sr6);                     //mit den Reihen und Spalten der note, diese Ã¼ber den Dienst spielen aufrufen
+  }
+}
+
+void d2(int val) {
+  unterschied = 0;
+  start = millis();
+  while(unterschied<=val) {
+    unterschied = millis()-start;
+    spielen(sr4,sr4);
+  }
+}
+
+void e2(int val) {
+  unterschied = 0;
+  start = millis();
+  while(unterschied<=val) {
+    unterschied = millis()-start;
+    spielen(sr4,sr2);
+  }
+}
+
+void f3(int val) {
+  unterschied = 0;
+  start = millis();
+  while(unterschied<=val) {
+    unterschied = millis()-start;
+    spielen(sr3,sr7);
+  }
+}
+
+void g3(int val) {
+  unterschied = 0;
+  start = millis();
+  while(unterschied<=val) {
+    unterschied = millis()-start;
+    spielen(sr3,sr5);
+  }
+}
+
+void g2(int val) {
+  unterschied = 0;
+  start = millis();
+  while(unterschied<=val) {
+    unterschied = millis()-start;
+    spielen(sr1,sr1);
+  }
+}
+
+void a3(int val) {
+  unterschied = 0;
+  start = millis();
+  while(unterschied<=val) {
+    unterschied = millis()-start;
+    spielen(sr3,sr3);
+  }
+}
+
+void b3(int val) {
+  unterschied = 0;
+  start = millis();
+  while(unterschied<=val) {
+    unterschied = millis()-start;
+    spielen(sr3,sr4);
+  }
+}
+// ----- Noten für das Lied Clocks ------------
+void es3(int val){
+  unterschied = 0;
+  start = millis();
+  while(unterschied<=val) {
+    unterschied = millis()-start;
+    spielen(sr6,sr5);
+  }
+}
+
+void ais3(int val){
+  unterschied = 0;
+  start = millis();
+  while(unterschied<=val) {
+    unterschied = millis()-start;
+    spielen(sr3,sr4);
+  }
+}
+
+void cis3(int val){
+  unterschied = 0;
+  start = millis();
+  while(unterschied<=val) {
+    unterschied = millis()-start;
+    spielen(sr5,sr3);
+  }
+}
+
+void as3(int val){
+  unterschied = 0;
+  start = millis();
+  while(unterschied<=val) {
+    unterschied = millis()-start;
+    spielen(sr3,sr6);
+  }
+}
+
+void c3(int val){
+  unterschied = 0;
+  start = millis();
+  while(unterschied<=val) {
+    unterschied = millis()-start;
+    spielen(sr3,sr2);
+  }
+}
+
+//Alle Spalten in allen Reihen auf 1 setzen
+void set1(int val) {
+  unterschied = 0;
+  start = millis();
+  while(unterschied<=val) {
+    unterschied = millis()-start;
+    spielen(sr1,B11111111);
+    spielen(sr2,B11111111);
+    spielen(sr3,B11111111);
+    spielen(sr4,B11111111);
+    spielen(sr5,B11111111);
+    spielen(sr6,B11111111);
+    spielen(sr7,B11111111);
+    spielen(sr8,B11111111); 
+  }
+}
+
+uint32_t Wheel(byte WheelPos) {
+  WheelPos = 255 - WheelPos;
+  if(WheelPos < 85) {
+    return strip.Color(255 - WheelPos * 3, 0, WheelPos * 3);
+  }
+  if(WheelPos < 170) {
+    WheelPos -= 85;
+    return strip.Color(0, WheelPos * 3, 255 - WheelPos * 3);
+  }
+  WheelPos -= 170;
+  return strip.Color(WheelPos * 3, 255 - WheelPos * 3, 0);
+}
+
+void rainbowCycle(uint8_t wait) {  // Regenbogen, der gegen den Uhrzeigersinn läuft.
+  uint16_t i, j;
+
+  for(j=0; j<256*5; j++) { // 5 cycles of all colors on wheel
+    for(i=0; i< strip.numPixels(); i++) {
+      strip.setPixelColor(i, Wheel(((i * 256 / strip.numPixels()) + j) & 255));
+    }
+    strip.show();
+    delay(wait/10);
+  }
+}
+
+void lichtshow_weiter(uint16_t j){
+  if(j<256*5){
+    j++;
+  }
+  else{
+    j=0;
+  }
+    for(i=0; i< strip.numPixels(); i++) {
+      strip.setPixelColor(i, Wheel(((i * 256 / strip.numPixels()) + j) & 255));
+    }
+    strip.show();
+  }
